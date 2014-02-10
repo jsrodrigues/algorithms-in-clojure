@@ -6,8 +6,6 @@ A Clojure implementation of various algorithms. The objective is to have fun, le
 
 Fire up a repl wih lein repl and you can run the individual functions at the REPL prompt
 
-FIXME
-
 ## License
 
 Copyright © 2014
