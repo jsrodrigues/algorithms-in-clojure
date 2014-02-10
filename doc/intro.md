@@ -1,3 +1,3 @@
 # Introduction to algorithms-in-clojure
 
-TODO: write [great documentation](http://jacobian.org/writing/great-documentation/what-to-write/)
+So far I have implemented 2 sorting algorithms i.e. Quicksort and Bubblesort.
