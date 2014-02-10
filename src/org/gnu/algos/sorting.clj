@@ -5,15 +5,15 @@
   "Bubble sort algorithm"
   [inp]
   (let [work-list (ArrayList. inp)]
-    (loop [last-elt (- (count work-list) 1)]
+    (loop [last-elt (dec (count work-list))]
       (if (pos? last-elt)
         (do
           (dotimes [indx last-elt]
             (let [elt-a (.get work-list indx)
-                  elt-b (.get work-list (+ 1 indx))]
+                  elt-b (.get work-list (inc indx))]
               (when (> elt-a elt-b)
                 (.set work-list indx elt-b)
-                (.set work-list (+ 1 indx) elt-a))))
+                (.set work-list (inc indx) elt-a))))
           (recur (dec last-elt)))
         work-list))))
 
