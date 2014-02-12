@@ -19,7 +19,7 @@
 
 (defn quicksort
   "Quicksort algorithm"
-  ([inp ]
+  ([inp]
      (let [inp-length (count inp)]
        (if (empty? inp)
          inp
@@ -29,3 +29,13 @@
            (lazy-cat (quicksort less-than-equal-pivot)
                      [pivot-elt]
                      (quicksort greater-than-pivot)))))))
+
+(defn benchmark-sorts
+  "Benchmark the various sorting functions"
+  []
+  (let [inp (take 1000 (repeatedly #(int (rand 1000))))
+        srt-1 (time (do (println "Quicksort")
+                        (quicksort inp)))
+        srt-2 (time (do (println "Bubblesort")
+                        (bubblesort inp)))]
+    (= srt-1 srt-2)))
