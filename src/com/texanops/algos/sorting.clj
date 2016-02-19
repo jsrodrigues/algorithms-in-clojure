@@ -1,4 +1,4 @@
-(ns org.gnu.algos.sorting
+(ns com.texanops.algos.sorting
   (:import [java.util ArrayList]))
 
 (defn bubblesort
