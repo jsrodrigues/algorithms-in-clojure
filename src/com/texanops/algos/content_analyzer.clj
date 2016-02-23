@@ -1,12 +1,13 @@
 (ns com.texanops.algos.content-analyzer
   (:require [com.texanops.algos.utils :refer [get-content-file]]))
 
-;; Looked for the FAILED key in the result. Indicates what failed the regex.
-;; Also, this is equating words like to-morrow and to-night.
 (defn remove-punctuation [word]
   (try
-    (let [word-without-punctuation
-          (second (re-find #"^[\p{Punct}]{0,}([\w]+)[\p{Punct}]{0,}[\w]{0,}$" word))]
+    (let [word-without-punctuation (if-let [captured-word-list
+                                            (re-find #"^[\p{Punct}]{0,}([\w]+[-]{0,1}[\w]+)[\p{Punct}]{0,}[\w]{0,}$"
+                                              word)]
+                                     (second captured-word-list)
+                                     word)]
       (.toLowerCase word-without-punctuation))
     (catch Exception e
       "FAILED")))
