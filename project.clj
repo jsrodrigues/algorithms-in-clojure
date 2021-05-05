@@ -3,4 +3,4 @@
   :aot [com.texanops.app]
   :main com.texanops.app
   :uberjar-name "ClojureAlgos.jar"
-  :dependencies [[org.clojure/clojure "1.8.0"]])
+  :dependencies [[org.clojure/clojure "1.10.3"]])
