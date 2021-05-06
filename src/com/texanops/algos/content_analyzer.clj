@@ -39,6 +39,10 @@
        (.put result key value))
      result)))
 
+;; Note that macbeth and analyze-content are two alternative solutions
+;; For some reason (that I've not currently analyzed, the macbeth one
+;; produces fewer words than analyze-content. Also analyze-content's
+;; output, while verbose is not too user friendly
 (defn macbeth
   ([]
    (macbeth (get-content-file)))
@@ -52,6 +56,6 @@
          word-counts (reduce #(let [word (.toLowerCase %2)]
                                 (assoc %1 word (inc (get %1 word 0)))) {} longer-words)]
      (into (sorted-map-by (fn [key1 key2]
-                            (compare (word-counts key2)
-                                     (word-counts key1))))
+                            (compare [(get word-counts key2) key2]
+                                     [(get word-counts key1) key1])))
            word-counts))))
